@@ -337,11 +337,23 @@ main_code_FVM.m
 
 ## 15. Results
 
-*Add contour, streamline, and centerline-velocity plots here once generated at the parameters above — same format as the companion Euler repository (`Results/Velocity_cntr_Re7500_Nx128.png`, `Results/Streamline_Re7500_Nx128.png`, `Results/u_x_center_Re7500_Nx128.png`, `Results/v_y_center_Re7500_Nx128.png`).*
+All results are for $Re = 7500$, $N_x = 128$.
 
-### Benchmark
+### Velocity Contour and Streamlines
 
-*Link/add benchmark comparison data here (e.g. Ghia et al. 1982 centerline profiles) once available.*
+| Velocity Magnitude | Streamlines |
+|:---:|:---:|
+| <img src="Results/Velocity_cntr_Re7500_Nx128.png" width="400"/> | <img src="Results/Streamline_Re7500_Nx128.png" width="400"/> |
+
+### Centreline Velocity Profiles
+
+| u at x-centre | v at y-centre |
+|:---:|:---:|
+| <img src="Results/u_x_center_Re7500_Nx128.png" width="400"/> | <img src="Results/v_y_center_Re7500_Nx128.png" width="400"/> |
+
+> The solver captures the primary recirculation vortex and developing secondary eddies characteristic of $Re = 7500$. The AF method achieves this at a fraction of the cost of a direct coupled solve - reassembled $2N \times 2N$ sparse system solve at every time step. Crank it up to larger Reynold's number with more grid points, it is unbelievably fast and accurate compared to the Semi-Explicit solver.
+
+---
 
 ---
 
