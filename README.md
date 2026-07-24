@@ -351,10 +351,12 @@ All results are for $Re = 7500$, $N_x = 128$.
 |:---:|:---:|
 | <img src="Results/u_x_center_Re7500_Nx128.png" width="400"/> | <img src="Results/v_y_center_Re7500_Nx128.png" width="400"/> |
 
-> The solver captures the primary recirculation vortex and developing secondary eddies characteristic of $Re = 7500$. The AF method achieves this at a fraction of the cost of a direct coupled solve - reassembled $2N \times 2N$ sparse system solve at every time step. Crank it up to larger Reynold's number with more grid points, it is unbelievably fast and accurate compared to the Semi-Explicit solver.
+### Benchmark
+
+Check out the benchmark data for Re=2500. You can see the exact numerical data that we have produced with our method.
+
+> *https://www.acenumerics.com/the-benchmarks.html*
 
 ---
 
----
-
-*Solver: 2D Lid-Driven Cavity — Collocated FVM, Semi-Implicit Crank-Nicolson ($\theta=1/2$) predictor via Approximate Factorization (4 scalar Thomas-algorithm sweeps), CN-consistent half-weight pressure pre-correction and projection, Gauss–Seidel Pressure Poisson solve. Implemented in MATLAB.*
+*Solver: 2D Lid-Driven Cavity — Collocated FVM, Semi-Implicit predictor via Approximate Factorization (4 scalar Thomas-algorithm sweeps), Gauss–Seidel Pressure Poisson correction. Implemented in MATLAB.*
