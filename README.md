@@ -359,4 +359,4 @@ Check out the benchmark data for Re=2500. You can see the exact numerical data t
 
 ---
 
-*Solver: 2D Lid-Driven Cavity — Collocated FVM, Semi-Implicit predictor via Approximate Factorization (4 scalar Thomas-algorithm sweeps), Gauss–Seidel Pressure Poisson correction. Implemented in MATLAB.*
+*Solver: 2D Lid-Driven Cavity — Collocated FVM, Semi-Implicit Crank Nicolson(CN2) 3-step Fractional Step Method via Approximate Factorization, Gauss–Seidel Pressure Poisson correction. Implemented in MATLAB.*
