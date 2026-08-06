@@ -24,7 +24,7 @@
 
 ## 1. Abstract
 
-A semi-implicit finite volume solver is developed for the 2D incompressible lid-driven cavity problem at elevated Reynolds numbers ($Re = 7500$), extending an earlier Backward-Euler AF solver to a **Crank-Nicolson (CN)** treatment of diffusion, $\theta = 1/2$. The solver treats diffusion and linearized convection semi-implicitly in the predictor step, and — exactly as in the Euler variant — avoids assembling or inverting a large coupled sparse system at every step by employing **Approximate Factorization (AF)**, reducing the implicit solve to four scalar Thomas-algorithm tridiagonal passes per time step. Because Crank-Nicolson's implicit weight only carries $\theta=1/2$ (rather than Euler's $\theta=1$), the predictor is followed by an additional intermediate pressure pre-correction stage before projection, to keep the pressure-gradient treatment consistent with the CN time-centering. A pressure Poisson equation with Neumann boundary conditions is solved iteratively via Gauss–Seidel to enforce continuity and recover the corrected velocity field at each time step.
+A semi-implicit finite volume solver is developed for the 2D incompressible lid-driven cavity problem at elevated Reynolds numbers ($Re = 7500$), extending an earlier Implicit-Euler AF solver to a **Crank-Nicolson (CN)** treatment of diffusion, $\theta = 1/2$. The solver treats diffusion and linearized convection semi-implicitly in the predictor step, and — exactly as in the Euler variant — avoids assembling or inverting a large coupled sparse system at every step by employing **Approximate Factorization (AF)**, reducing the implicit solve to four scalar Thomas-algorithm tridiagonal passes per time step. Because Crank-Nicolson's implicit weight only carries $\theta=1/2$ (rather than Euler's $\theta=1$), the predictor is followed by an additional intermediate pressure pre-correction stage before projection, to keep the pressure-gradient treatment consistent with the CN time-centering. A pressure Poisson equation with Neumann boundary conditions is solved iteratively via Gauss–Seidel to enforce continuity and recover the corrected velocity field at each time step.
 
 ---
 
@@ -78,7 +78,7 @@ Diffusion is advanced with the $\theta$-method:
 
 $$\frac{u^{n+1}-u^n}{\Delta t} = \theta\,\gamma\nabla^2 u^{n+1} + (1-\theta)\,\gamma\nabla^2 u^n + (\text{explicit convection, pressure})$$
 
-with **$\theta = 1/2$** (Crank-Nicolson) here, versus $\theta = 1$ (Backward Euler) in the companion repository. Writing in **delta form**, $\Delta u = u^{n+1}-u^n$, and substituting $u^{n+1}=u^n+\Delta u$ into the diffusion terms:
+with **$\theta = 1/2$** (Crank-Nicolson) here, versus $\theta = 1$ (Implicit Euler) in the companion repository. Writing in **delta form**, $\Delta u = u^{n+1}-u^n$, and substituting $u^{n+1}=u^n+\Delta u$ into the diffusion terms:
 
 $$\theta\,\gamma\nabla^2(u^n+\Delta u) + (1-\theta)\gamma\nabla^2 u^n = \theta\,\gamma\nabla^2\Delta u + \gamma\nabla^2 u^n$$
 
